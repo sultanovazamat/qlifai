@@ -23,7 +23,17 @@
         <a href="#faq">FAQ</a>
       </nav>
       <a href="#waitlist" class="btn btn-primary btn-small">Join waitlist</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+    <nav class="mobile-nav" aria-hidden="true">
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#waitlist" class="btn btn-primary">Join waitlist</a>
+    </nav>
   </header>
 
   <main id="top">
@@ -32,19 +42,17 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <h1>Effortless bookings solution for pet groomers</h1>
-          <p class="lead">Simple scheduling with automatic reminders. <br /><strong>Set up your profile in minutes with AI.</strong></p>
+          <p class="lead">Simple appointments with automatic reminders. <br /><strong>Set up your profile in minutes with AI.</strong></p>
           <div class="cta-row">
             <a href="#waitlist" class="btn btn-primary">Get 2 months free</a>
-          </div>
-          <div class="trust-row">
             <div class="avatars" aria-hidden="true">
               <span class="avatar">🐶</span>
               <span class="avatar">🐱</span>
               <span class="avatar">🐕‍🦺</span>
               <span class="avatar">🐈‍⬛</span>
             </div>
-            <p class="tiny">Built for solo groomers and small salons.</p>
           </div>
+          <p class="tiny">Built for solo groomers and small salons.</p>
         </div>
         <div class="hero-art">
           <img class="hero-photo" alt="Happy groomed dog at a pet salon" src="https://images.unsplash.com/photo-1719464454959-9cf304ef4774?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070" />
@@ -57,15 +65,15 @@
       <div class="container">
         <div class="problem-head">
           <h2>Without a booking system, everyone loses time</h2>
-          <p class="muted-text">Two sides of the same problem — busy groomers and customers who just want an open slot.</p>
+          <p class="muted-text">Busy groomers and customers who just want an open slot.</p>
         </div>
         <div class="problem-grid">
           <div class="problem-card">
             <h3 class="subheading">For groomers</h3>
             <ul class="problem-list">
-              <li><span class="p-icon">✕</span>Chasing DMs and calls to confirm a time</li>
-              <li><span class="p-icon">✕</span>Paper notes and spreadsheets that don’t sync</li>
-              <li><span class="p-icon">✕</span>No‑shows when reminders are manual</li>
+              <li><span class="p-icon">✕</span>Chasing DMs and calls to confirm times</li>
+              <li><span class="p-icon">✕</span>Paper notes and spreadsheets that don't sync</li>
+              <li><span class="p-icon">✕</span>No‑shows with manual reminders</li>
               <li><span class="p-icon">✕</span>Setup friction with complex tools</li>
             </ul>
           </div>
@@ -73,7 +81,7 @@
             <h3 class="subheading">For customers</h3>
             <ul class="problem-list">
               <li><span class="p-icon">✕</span>No clear view of available slots</li>
-              <li><span class="p-icon">✕</span>Slow back‑and‑forth to book simple services</li>
+              <li><span class="p-icon">✕</span>Slow back‑and‑forth for simple bookings</li>
               <li><span class="p-icon">✕</span>Missed appointments without reminders</li>
               <li><span class="p-icon">✕</span>Confusion over service durations and staff</li>
             </ul>
@@ -85,8 +93,8 @@
     <!-- AI Onboarding highlight (not in top nav) -->
     <section class="section muted" aria-labelledby="ai-onboarding">
       <div class="container">
-        <h2 id="ai-onboarding">Onboarding in minutes with AI</h2>
-        <p class="muted-text">Speak, upload, or paste your services and staff. We structure it, ask clarifying questions, and generate your booking page automatically.</p>
+        <h2 id="ai-onboarding">Onboarding fast with AI</h2>
+        <p class="muted-text">Speak, upload, or paste your services and staff. We structure all and create your booking page automatically.</p>
         <div class="three-cards">
           <div class="card step-card">
             <div class="step-head"><span class="icon-circle">📥</span><h4>Bring your info</h4></div>
@@ -110,36 +118,30 @@
         <h2>Everything you need to run bookings</h2>
         <p class="muted-text">From sharing a link to reminders and team schedules.</p>
       </div>
-      <div class="container features-grid">
-        <div class="feature">
-          <span class="icon-circle" aria-hidden="true">📅</span>
-          <h3>Share a booking link</h3>
-          <p>Customers pick a service and a free slot. No accounts needed.</p>
+      <div class="container three-cards">
+        <div class="card step-card">
+          <div class="step-head"><span class="icon-circle">📅</span><h4>Share a booking link</h4></div>
+          <p class="muted-text">Customers pick a service and a free slot. No accounts needed.</p>
         </div>
-        <div class="feature">
-          <span class="icon-circle" aria-hidden="true">🔔</span>
-          <h3>Automatic reminders</h3>
-          <p>Text/email reminders reduce no‑shows and last‑minute cancellations.</p>
+        <div class="card step-card">
+          <div class="step-head"><span class="icon-circle">🔔</span><h4>Automatic reminders</h4></div>
+          <p class="muted-text">Text/email reminders reduce no‑shows and last‑minute cancellations.</p>
         </div>
-        <div class="feature">
-          <span class="icon-circle" aria-hidden="true">👥</span>
-          <h3>Team‑ready</h3>
-          <p>Add multiple groomers with individual schedules and services.</p>
+        <div class="card step-card">
+          <div class="step-head"><span class="icon-circle">👥</span><h4>Team‑ready</h4></div>
+          <p class="muted-text">Add multiple groomers with individual schedules and services.</p>
         </div>
-        <div class="feature">
-          <span class="icon-circle" aria-hidden="true">⚡</span>
-          <h3>Fast setup with AI</h3>
-          <p>Import your price list by voice, image, or plain text in minutes.</p>
+        <div class="card step-card">
+          <div class="step-head"><span class="icon-circle">⚡</span><h4>Fast setup with AI</h4></div>
+          <p class="muted-text">Import your price list by voice, image, or plain text in minutes.</p>
         </div>
-        <div class="feature">
-          <span class="icon-circle" aria-hidden="true">💵</span>
-          <h3>Clear pricing</h3>
-          <p>One simple plan. No hidden fees. Cancel anytime.</p>
+        <div class="card step-card">
+          <div class="step-head"><span class="icon-circle">💵</span><h4>Clear pricing</h4></div>
+          <p class="muted-text">One simple plan. No hidden fees. Cancel anytime.</p>
         </div>
-        <div class="feature">
-          <span class="icon-circle" aria-hidden="true">🛡️</span>
-          <h3>Privacy‑first</h3>
-          <p>No payment processing. We only handle scheduling and notifications.</p>
+        <div class="card step-card">
+          <div class="step-head"><span class="icon-circle">🛡️</span><h4>Privacy‑first</h4></div>
+          <p class="muted-text">No payment processing. We only handle scheduling and notifications.</p>
         </div>
       </div>
     </section>
@@ -211,14 +213,37 @@
     <section id="waitlist" class="section accent waitlist-section">
       <div class="container waitlist-grid">
         <div class="waitlist-copy">
-          <span class="kicker">Waitlist</span>
-          <h2>Be first to try PawPoint</h2>
-          <p>Join now and get <strong>2 months free</strong> at launch. We’ll email you when invites roll out.</p>
-          <ul class="benefits-list">
-            <li class="benefit-item"><span class="icon-circle">⭐</span><div>Priority access</div></li>
-            <li class="benefit-item"><span class="icon-circle">🏅</span><div>Founding user badge</div></li>
-            <li class="benefit-item"><span class="icon-circle">🗺️</span><div>Early roadmap influence</div></li>
-          </ul>
+          <div class="waitlist-header">
+            <span class="kicker">Waitlist</span>
+            <h2>Be first to try PawPoint</h2>
+            <p class="waitlist-description">Join now and get <strong>2 months free</strong> at launch. We'll email you when invites roll out.</p>
+          </div>
+          <div class="waitlist-benefits">
+            <h3 class="benefits-title">What you get:</h3>
+            <ul class="benefits-list">
+              <li class="benefit-item">
+                <span class="icon-circle">⭐</span>
+                <div class="benefit-content">
+                  <strong>Priority access</strong>
+                  <span class="benefit-desc">Be among the first customers</span>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <span class="icon-circle">🏅</span>
+                <div class="benefit-content">
+                  <strong>Founding user badge</strong>
+                  <span class="benefit-desc">Special recognition in your profile</span>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <span class="icon-circle">🗺️</span>
+                <div class="benefit-content">
+                  <strong>Early roadmap influence</strong>
+                  <span class="benefit-desc">Help shape the future of PawPoint</span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="embed-card">
           <div style="width:100%;height:560px;" data-fillout-id="efWqXTShTTus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
@@ -252,10 +277,17 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="brand-inline"><span class="brand-mark">🐾</span> <span class="brand-name">PawPoint</span></div>
-      <div class="muted-text tiny">© <span id="year"></span> PawPoint. All rights reserved.</div>
-      <a class="muted-text" href="mailto:hello@pawpoint.app">hello@pawpoint.app</a>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="brand-mark">🐾</span>
+          <span class="brand-name">PawPoint</span>
+        </div>
+        <div class="footer-info">
+          <p class="footer-copyright">© <span id="year"></span> PawPoint. All rights reserved.</p>
+          <a class="footer-email" href="mailto:hello@pawpoint.app">hello@pawpoint.app</a>
+        </div>
+      </div>
     </div>
   </footer>
 

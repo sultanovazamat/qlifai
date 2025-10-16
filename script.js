@@ -1,3 +1,33 @@
+// Mobile navigation toggle
+(function initMobileNav() {
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+  
+  if (!toggle || !mobileNav) return;
+  
+  toggle.addEventListener('click', () => {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', !isExpanded);
+    mobileNav.setAttribute('aria-hidden', isExpanded);
+  });
+  
+  // Close mobile nav when clicking on links
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      toggle.setAttribute('aria-expanded', 'false');
+      mobileNav.setAttribute('aria-hidden', 'true');
+    }
+  });
+  
+  // Close mobile nav when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+      toggle.setAttribute('aria-expanded', 'false');
+      mobileNav.setAttribute('aria-hidden', 'true');
+    }
+  });
+})();
+
 // Smooth scroll for in-page anchors
 document.addEventListener('click', (e) => {
   const target = e.target.closest('a[href^="#"]');
