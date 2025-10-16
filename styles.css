@@ -371,12 +371,107 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 20px 40px rgba(16,24,40,0.15);
   border: 1px solid rgba(16,24,40,0.08);
   max-width: 200px;
+  animation: slideInFromRight 0.6s ease-out;
+  transform-origin: top right;
+}
+
+/* Notification indicator */
+.notification-indicator {
+  width: 8px;
+  height: 8px;
+  background: var(--ok);
+  border-radius: 50%;
+  margin-left: auto;
+  animation: pulse 2s infinite;
+}
+
+/* Animations */
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%) scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(-10%) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes slideOutToLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(10%) scale(0.95);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%) scale(0.8);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Animation classes */
+.floating-card.entering {
+  animation: slideInFromRight 0.6s ease-out;
+}
+
+.floating-card.exiting {
+  animation: slideOutToLeft 0.4s ease-in;
+}
+
+.booking-item.updating {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.floating-card.new-booking {
+  animation: bounce 0.8s ease-out;
 }
 .card-header {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 12px;
+  position: relative;
 }
 .card-icon {
   font-size: 16px;

@@ -163,4 +163,103 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   });
 })();
 
+// Animated booking notifications
+(function initBookingNotifications() {
+  const notificationCard = document.getElementById('booking-notification');
+  const bookingContent = document.getElementById('booking-content');
+  
+  if (!notificationCard || !bookingContent) return;
+
+  // Sample booking data
+  const bookings = [
+    { pet: 'Fluffy', service: 'Full Groom', time: 'Tomorrow 2:00 PM' },
+    { pet: 'Max', service: 'Nail Trim', time: 'Today 4:30 PM' },
+    { pet: 'Bella', service: 'Bath & Brush', time: 'Friday 10:00 AM' },
+    { pet: 'Charlie', service: 'Full Groom', time: 'Monday 1:00 PM' },
+    { pet: 'Luna', service: 'Teeth Cleaning', time: 'Wednesday 3:15 PM' },
+    { pet: 'Rocky', service: 'Bath & Brush', time: 'Thursday 11:30 AM' },
+    { pet: 'Milo', service: 'Nail Trim', time: 'Saturday 2:45 PM' },
+    { pet: 'Sophie', service: 'Full Groom', time: 'Tuesday 9:00 AM' }
+  ];
+
+  let currentIndex = 0;
+  let isAnimating = false;
+  let animationTimeout = null;
+  let nextUpdateTimeout = null;
+
+  function updateBooking() {
+    if (isAnimating) return;
+    
+    isAnimating = true;
+    const nextIndex = (currentIndex + 1) % bookings.length;
+    const nextBooking = bookings[nextIndex];
+    
+    // Clear any existing timeouts
+    if (animationTimeout) clearTimeout(animationTimeout);
+    if (nextUpdateTimeout) clearTimeout(nextUpdateTimeout);
+    
+    // Add exit animation
+    notificationCard.classList.add('exiting');
+    
+    animationTimeout = setTimeout(() => {
+      // Update content
+      const strongEl = bookingContent.querySelector('strong');
+      const spanEl = bookingContent.querySelector('span');
+      
+      if (strongEl && spanEl) {
+        strongEl.textContent = `${nextBooking.pet} - ${nextBooking.service}`;
+        spanEl.textContent = nextBooking.time;
+      }
+      
+      // Remove exit animation and add entrance animation
+      notificationCard.classList.remove('exiting');
+      notificationCard.classList.add('entering');
+      
+      // Clean up animation classes after entrance animation completes
+      animationTimeout = setTimeout(() => {
+        notificationCard.classList.remove('entering');
+        isAnimating = false;
+        currentIndex = nextIndex;
+      }, 600);
+    }, 400);
+  }
+
+  function scheduleNextUpdate() {
+    const delay = 4000 + Math.random() * 2000; // 4-6 seconds
+    nextUpdateTimeout = setTimeout(() => {
+      updateBooking();
+      scheduleNextUpdate();
+    }, delay);
+  }
+
+  // Start the animation cycle
+  // First update after 3 seconds, then every 4-6 seconds
+  setTimeout(() => {
+    updateBooking();
+    scheduleNextUpdate();
+  }, 3000);
+
+  // Add hover pause functionality
+  let isHovered = false;
+  let hoverResumeTimeout = null;
+  
+  notificationCard.addEventListener('mouseenter', () => {
+    isHovered = true;
+    if (hoverResumeTimeout) {
+      clearTimeout(hoverResumeTimeout);
+      hoverResumeTimeout = null;
+    }
+  });
+  
+  notificationCard.addEventListener('mouseleave', () => {
+    isHovered = false;
+    // Resume animation after a short delay
+    hoverResumeTimeout = setTimeout(() => {
+      if (!isHovered && !isAnimating) {
+        scheduleNextUpdate();
+      }
+    }, 1000);
+  });
+})();
+
 
