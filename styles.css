@@ -299,7 +299,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 20px; 
   flex-wrap: wrap; 
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 .trust-indicators {
   display: flex;
@@ -315,8 +315,9 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin-top: 8px;
 }
 .feature-pill {
   background: rgba(255,255,255,0.8);
@@ -981,7 +982,28 @@ input:focus, select:focus, textarea:focus {
   .benefit-icon { width: 36px; height: 36px; font-size: 20px; }
   .problem-stats { gap: 20px; }
   .stat-number { font-size: 36px; }
-  .floating-card { max-width: 160px; padding: 12px; }
+  .floating-card { 
+    max-width: 160px; 
+    padding: 12px; 
+    top: 16px;
+    right: 16px;
+  }
+  .card-header {
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .card-icon {
+    font-size: 14px;
+  }
+  .card-title {
+    font-size: 12px;
+  }
+  .booking-item strong {
+    font-size: 12px;
+  }
+  .booking-item span {
+    font-size: 10px;
+  }
   .step-head { gap: 8px; margin-bottom: 4px; }
   .step-head .icon-circle { 
     width: 32px; 
@@ -1054,7 +1076,28 @@ input:focus, select:focus, textarea:focus {
   .benefit-icon { width: 32px; height: 32px; font-size: 18px; }
   .problem-stats { gap: 16px; }
   .stat-number { font-size: 32px; }
-  .floating-card { max-width: 140px; padding: 10px; }
+  .floating-card { 
+    max-width: 140px; 
+    padding: 10px; 
+    top: 12px;
+    right: 12px;
+  }
+  .card-header {
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  .card-icon {
+    font-size: 12px;
+  }
+  .card-title {
+    font-size: 11px;
+  }
+  .booking-item strong {
+    font-size: 11px;
+  }
+  .booking-item span {
+    font-size: 9px;
+  }
   .hero-features { 
     gap: 8px; 
     flex-direction: column;
@@ -1214,5 +1257,28 @@ input:focus, select:focus, textarea:focus {
   .toggle-btn {
     padding: 4px 8px;
     font-size: 12px;
+  }
+  
+  .floating-card { 
+    max-width: 120px; 
+    padding: 8px; 
+    top: 8px;
+    right: 8px;
+  }
+  .card-header {
+    gap: 3px;
+    margin-bottom: 4px;
+  }
+  .card-icon {
+    font-size: 10px;
+  }
+  .card-title {
+    font-size: 10px;
+  }
+  .booking-item strong {
+    font-size: 10px;
+  }
+  .booking-item span {
+    font-size: 8px;
   }
 }
