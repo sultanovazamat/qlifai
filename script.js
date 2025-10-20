@@ -170,17 +170,39 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   
   if (!notificationCard || !bookingContent) return;
 
-  // Sample booking data
-  const bookings = [
-    { pet: 'Fluffy', service: 'Full Groom', time: 'Tomorrow 2:00 PM' },
-    { pet: 'Max', service: 'Nail Trim', time: 'Today 4:30 PM' },
-    { pet: 'Bella', service: 'Bath & Brush', time: 'Friday 10:00 AM' },
-    { pet: 'Charlie', service: 'Full Groom', time: 'Monday 1:00 PM' },
-    { pet: 'Luna', service: 'Teeth Cleaning', time: 'Wednesday 3:15 PM' },
-    { pet: 'Rocky', service: 'Bath & Brush', time: 'Thursday 11:30 AM' },
-    { pet: 'Milo', service: 'Nail Trim', time: 'Saturday 2:45 PM' },
-    { pet: 'Sophie', service: 'Full Groom', time: 'Tuesday 9:00 AM' }
-  ];
+  const industry = (document.body.getAttribute('data-industry') || '').toLowerCase();
+
+  // Sample booking data by industry
+  let bookings;
+  if (industry === 'restaurants') {
+    bookings = [
+      { primary: 'Smith — Table for 2', time: 'Today 7:00 PM' },
+      { primary: 'Garcia — Table for 4', time: 'Tomorrow 8:15 PM' },
+      { primary: 'Chen — Table for 3', time: 'Friday 6:30 PM' },
+      { primary: 'O’Neill — Table for 5', time: 'Saturday 7:45 PM' },
+      { primary: 'Khan — Table for 2', time: 'Sunday 1:00 PM' },
+      { primary: 'Lopez — Table for 6', time: 'Thursday 8:00 PM' }
+    ];
+  } else if (industry === 'general') {
+    bookings = [
+      { primary: 'New client — Consultation', time: 'Tomorrow 2:00 PM' },
+      { primary: 'Follow‑up — 30 min', time: 'Today 4:30 PM' },
+      { primary: 'Kickoff — 60 min', time: 'Friday 10:00 AM' },
+      { primary: 'Review — 45 min', time: 'Monday 1:00 PM' }
+    ];
+  } else {
+    // Default (pet groomers)
+    bookings = [
+      { primary: 'Fluffy - Full Groom', time: 'Tomorrow 2:00 PM' },
+      { primary: 'Max - Nail Trim', time: 'Today 4:30 PM' },
+      { primary: 'Bella - Bath & Brush', time: 'Friday 10:00 AM' },
+      { primary: 'Charlie - Full Groom', time: 'Monday 1:00 PM' },
+      { primary: 'Luna - Teeth Cleaning', time: 'Wednesday 3:15 PM' },
+      { primary: 'Rocky - Bath & Brush', time: 'Thursday 11:30 AM' },
+      { primary: 'Milo - Nail Trim', time: 'Saturday 2:45 PM' },
+      { primary: 'Sophie - Full Groom', time: 'Tuesday 9:00 AM' }
+    ];
+  }
 
   let currentIndex = 0;
   let isAnimating = false;
@@ -207,7 +229,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
       const spanEl = bookingContent.querySelector('span');
       
       if (strongEl && spanEl) {
-        strongEl.textContent = `${nextBooking.pet} - ${nextBooking.service}`;
+        strongEl.textContent = nextBooking.primary;
         spanEl.textContent = nextBooking.time;
       }
       
@@ -233,7 +255,6 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   }
 
   // Start the animation cycle
-  // First update after 3 seconds, then every 4-6 seconds
   setTimeout(() => {
     updateBooking();
     scheduleNextUpdate();
